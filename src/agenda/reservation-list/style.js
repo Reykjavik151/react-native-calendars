@@ -7,7 +7,7 @@ export default function styleConstructor(theme = {}) {
   const appStyle = {...defaultStyle, ...theme};
   return  StyleSheet.create({
     container: {
-      flexDirection: 'row'
+      justifyContent: 'center'
     },
     dayNum: {
       fontSize: 28,
@@ -24,10 +24,10 @@ export default function styleConstructor(theme = {}) {
       marginTop: -5
     },
     day: {
-      width: 63,
       alignItems: 'center',
-      justifyContent: 'flex-start',
-      marginTop: 32
+      justifyContent: 'center',
+      marginTop: 10,
+      marginBottom: 10
     },
     today: {
       color: appStyle.agendaTodayColor
