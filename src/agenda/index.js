@@ -232,6 +232,10 @@ export default class AgendaView extends Component {
     }
   }
 
+  loadReservationsManually() {
+    this.loadReservations(this.props);
+  }
+
   enableCalendarScrolling() {
     this.setState({
       calendarScrollable: true,
