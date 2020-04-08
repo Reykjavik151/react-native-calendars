@@ -174,9 +174,9 @@ export default class AgendaView extends Component {
     this.onTouchEnd();
     const currentY = e.nativeEvent.contentOffset.y;
     this.knobTracker.add(currentY);
-    const projectedY = currentY + this.knobTracker.estimateSpeed() * 250; /*ms*/
+    // const projectedY = currentY + this.knobTracker.estimateSpeed() * 250; /*ms*/
     const maxY = this.initialScrollPadPosition();
-    const snapY = projectedY > maxY / 2 ? maxY : 0;
+    const snapY = currentY > maxY / 1.25 ? maxY : 0;
     this.setScrollPadPosition(snapY, true);
 
     if (snapY === 0) {
@@ -309,7 +309,7 @@ export default class AgendaView extends Component {
         topDay={this.state.topDay}
         onDayChange={this.onDayChange.bind(this)}
         onScroll={() => {}}
-        ref={c => (this.list = c)}
+        ref={(c) => (this.list = c)}
         theme={this.props.theme}
       />
     );
@@ -334,7 +334,7 @@ export default class AgendaView extends Component {
 
     if (!markings) {
       markings = {};
-      Object.keys(this.props.items || {}).forEach(key => {
+      Object.keys(this.props.items || {}).forEach((key) => {
         if (this.props.items[key] && this.props.items[key].length) {
           markings[key] = {marked: true};
         }
@@ -422,7 +422,7 @@ export default class AgendaView extends Component {
       );
       knob = this.state.calendarScrollable ? null : (
         <View style={this.styles.knobContainer}>
-          <View ref={c => (this.knob = c)}>{knobView}</View>
+          <View ref={(c) => (this.knob = c)}>{knobView}</View>
         </View>
       );
     }
@@ -448,7 +448,7 @@ export default class AgendaView extends Component {
               calendarWidth={this.viewWidth}
               theme={this.props.theme}
               onVisibleMonthsChange={this.onVisibleMonthsChange.bind(this)}
-              ref={c => (this.calendar = c)}
+              ref={(c) => (this.calendar = c)}
               minDate={this.props.minDate}
               maxDate={this.props.maxDate}
               current={this.currentMonth}
@@ -488,7 +488,7 @@ export default class AgendaView extends Component {
           ))}
         </Animated.View>
         <Animated.ScrollView
-          ref={c => (this.scrollPad = c)}
+          ref={(c) => (this.scrollPad = c)}
           overScrollMode="never"
           showsHorizontalScrollIndicator={false}
           showsVerticalScrollIndicator={false}
