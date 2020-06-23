@@ -119,6 +119,8 @@ class ReactComp extends Component {
           renderItem={this.props.renderItem}
           renderDay={this.props.renderDay}
           renderEmptyDate={this.props.renderEmptyDate}
+          renderDayLeftIcon={this.props.renderDayLeftIcon}
+          renderDayRightIcon={this.props.renderDayRightIcon}
           theme={this.props.theme}
           rowHasChanged={this.props.rowHasChanged}
         />
@@ -241,7 +243,7 @@ class ReactComp extends Component {
     }
     return (
       <FlatList
-        ref={c => (this.list = c)}
+        ref={(c) => (this.list = c)}
         style={this.props.style}
         contentContainerStyle={this.styles.content}
         renderItem={this.renderRow.bind(this)}

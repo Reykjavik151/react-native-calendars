@@ -302,6 +302,8 @@ export default class AgendaView extends Component {
         rowHasChanged={this.props.rowHasChanged}
         renderItem={this.props.renderItem}
         renderDay={this.props.renderDay}
+        renderDayLeftIcon={this.props.renderDayLeftIcon}
+        renderDayRightIcon={this.props.renderDayRightIcon}
         renderEmptyDate={this.props.renderEmptyDate}
         reservations={this.props.items}
         selectedDay={this.state.selectedDay}
